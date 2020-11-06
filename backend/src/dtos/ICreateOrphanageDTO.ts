@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import Image from '../models/Image';
 
 export default interface ICreateOrphanageDTO {
@@ -8,5 +9,5 @@ export default interface ICreateOrphanageDTO {
   instructions: string;
   opening_hours: string;
   open_on_weekends: boolean;
-  images: Image[];
+  images?: Image[];
 }
