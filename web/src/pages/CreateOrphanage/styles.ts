@@ -153,24 +153,21 @@ export const ImageContainer = styled.div`
 
 export const ButtonClose = styled.button`
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0px;
+  right: 0px;
   z-index: 10;
 
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
 
-  background: #000;
-  border-radius: 20px;
+  border: 1px solid #d3e2e5;
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom-left-radius: 20px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s;
-
-  :hover {
-    background: #17d6ed;
-  }
 `;
 
 export const ButtonConfirm = styled.button`

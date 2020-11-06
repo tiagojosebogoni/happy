@@ -33,7 +33,7 @@ export const Main = styled.div`
   max-width: 350px;
 
   h1 {
-    font-size: 76px;
+    font-size: 75px;
     font-weight: 900;
     line-height: 70px;
   }
@@ -47,7 +47,7 @@ export const Main = styled.div`
 
 export const Location = styled.div`
   position: absolute;
-  right: 0;
+  left: 300px;
   top: 0;
 
   font-size: 24px;
@@ -55,7 +55,6 @@ export const Location = styled.div`
 
   display: flex;
   flex-direction: column;
-  text-align: right;
 
   strong {
     font-weight: 800;
@@ -76,6 +75,32 @@ export const EnterApp = styled(Link)`
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
+
+  :hover {
+    background: #96feff;
+  }
+`;
+
+export const EnterAppRestricted = styled(Link)`
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 222px;
+  height: 56px;
+  border-radius: 20px;
+  background: #12d4e0;
+  border-radius: 30px;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+
+  strong {
+    color: #fff;
+  }
 
   :hover {
     background: #96feff;
