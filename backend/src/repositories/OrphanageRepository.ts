@@ -13,26 +13,29 @@ export default class OrphanageRepository implements IOrphanageRepository {
     this.ormRepository = getRepository(Orphanage);
   }
 
-  public async list({ id }: IListOrphanageDTO): Promise<Orphanage[]> {
-    let orphanages;
-
-    if (id) {
-      orphanages = this.ormRepository.find({
-        where: { id },
-        relations: ['images'],
-      });
-    } else {
-      orphanages = this.ormRepository.find({ relations: ['images'] });
-    }
-
-    return orphanages;
-  }
-
   public async create(orphanageData: ICreateOrphanageDTO): Promise<Orphanage> {
     const orphanage = this.ormRepository.create(orphanageData);
 
     await this.ormRepository.save(orphanage);
 
     return orphanage;
+  }
+
+  public async list({ id }: IListOrphanageDTO): Promise<Orphanage[]> {
+    let orphanages;
+
+    if (id) {
+      orphanages = this.ormRepository.find({
+        where: { id, pending: true },
+        relations: ['images'],
+      });
+    } else {
+      orphanages = this.ormRepository.find({
+        where: { pending: true },
+        relations: ['images'],
+      });
+    }
+
+    return orphanages;
   }
 }
