@@ -7,12 +7,17 @@ import cors from 'cors';
 
 import uploadConfig from './config/upload';
 import orphanagesRouter from './routes/orphanages.routes';
+// import sessionRouter from './routes/session.routes';
+import userRouter from './routes/user.routes';
 import AppError from './errors/AppError';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/users', userRouter);
+// app.use('/session', sessionRouter);
 app.use('/orphanages', orphanagesRouter);
 app.use('/uploads', express.static(uploadConfig.uploadsFolder));
 
