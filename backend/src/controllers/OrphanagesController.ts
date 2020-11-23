@@ -93,4 +93,17 @@ export default class OrphanagesController {
 
     return response.status(201).json(orphanagesView.renderMany(orphanages));
   }
+
+  public async listPending(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
+    const pending = request.params.pending === 'true';
+
+    const orphanageRepository = new OrphanageRepository();
+
+    const orphanages = await orphanageRepository.listPending(pending);
+
+    return response.status(201).json(orphanagesView.renderMany(orphanages));
+  }
 }

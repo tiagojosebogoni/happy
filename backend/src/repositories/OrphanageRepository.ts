@@ -26,7 +26,7 @@ export default class OrphanageRepository implements IOrphanageRepository {
 
     if (id) {
       orphanages = this.ormRepository.find({
-        where: { id, pending: true },
+        where: { id },
         relations: ['images'],
       });
     } else {
@@ -35,6 +35,15 @@ export default class OrphanageRepository implements IOrphanageRepository {
         relations: ['images'],
       });
     }
+
+    return orphanages;
+  }
+
+  public async listPending(pending = false): Promise<Orphanage[]> {
+    const orphanages = this.ormRepository.find({
+      where: { pending },
+      relations: ['images'],
+    });
 
     return orphanages;
   }

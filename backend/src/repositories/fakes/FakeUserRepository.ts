@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { uuid } from 'uuidv4';
 
 import ICreateUserDTO from '../../dtos/ICreateUserDTO';
@@ -22,6 +23,12 @@ class FakeUserRepository implements IUserRepository {
     this.users.push(user);
 
     return user;
+  }
+
+  public async findUserById(user_id: string): Promise<User | undefined> {
+    const findUser = this.users.find(user => user.id === user_id);
+
+    return findUser;
   }
 
   public async findUserByEmail(email: string): Promise<User | undefined> {
